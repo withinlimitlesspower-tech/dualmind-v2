@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualMindAI v2.0</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DualMindAI v2.0</h1>
+            <div class="controls">
+                <select id="language">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript/Node.js">JavaScript/Node.js</option>
+                    <option value="React">React</option>
+                    <option value="Go">Go</option>
+                </select>
+                <button id="generateBtn">Generate</button>
+                <button id="cancelBtn" style="display:none;">Cancel</button>
+            </div>
+        </header>
+        <main>
+            <div class="input-area">
+                <textarea id="prompt" placeholder="Describe your project..."></textarea>
+            </div>
+            <div id="progress" style="display:none;">
+                <div id="progressBar"></div>
+                <div id="progressMessage"></div>
+            </div>
+            <div id="output"></div>
+            <div id="toastContainer"></div>
+        </main>
+        <aside id="history">
+            <h3>History</h3>
+            <ul id="historyList"></ul>
+        </aside>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
