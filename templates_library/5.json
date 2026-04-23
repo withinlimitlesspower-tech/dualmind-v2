@@ -1,0 +1,7 @@
+{
+    "title": "CLI Tool",
+    "description": "A command-line tool using argparse.",
+    "files": [
+        {"path": "cli.py", "content": "import argparse\n\ndef main():\n    parser = argparse.ArgumentParser(description='A simple CLI tool')\n    parser.add_argument('name', help='Your name')\n    args = parser.parse_args()\n    print(f'Hello, {args.name}!')\n\nif __name__ == '__main__':\n    main()"}
+    ]
+}
