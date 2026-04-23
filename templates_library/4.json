@@ -1,0 +1,8 @@
+{
+    "title": "Python Scraper",
+    "description": "A web scraper using requests and BeautifulSoup.",
+    "files": [
+        {"path": "scraper.py", "content": "import requests\nfrom bs4 import BeautifulSoup\n\nurl = 'https://example.com'\nresponse = requests.get(url)\nsoup = BeautifulSoup(response.text, 'html.parser')\ntitles = soup.find_all('h2')\nfor title in titles:\n    print(title.get_text())"},
+        {"path": "requirements.txt", "content": "requests==2.31.0\nbeautifulsoup4==4.12.2"}
+    ]
+}
