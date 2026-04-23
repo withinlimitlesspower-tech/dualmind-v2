@@ -1,0 +1,8 @@
+{
+    "title": "Telegram Bot",
+    "description": "A simple Telegram bot using python-telegram-bot library.",
+    "files": [
+        {"path": "bot.py", "content": "import logging\nfrom telegram import Update\nfrom telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes\n\nlogging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)\n\nasync def start(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    await update.message.reply_text('Hello! I am a bot.')\n\nif __name__ == '__main__':\n    application = ApplicationBuilder().token('YOUR_TOKEN').build()\n    application.add_handler(CommandHandler('start', start))\n    application.run_polling()"},
+        {"path": "requirements.txt", "content": "python-telegram-bot==20.3"}
+    ]
+}
