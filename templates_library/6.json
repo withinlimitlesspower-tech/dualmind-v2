@@ -1,0 +1,8 @@
+{
+    "title": "Express API",
+    "description": "A basic Express.js REST API.",
+    "files": [
+        {"path": "server.js", "content": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\nlet items = [];\n\napp.get('/api/items', (req, res) => {\n    res.json(items);\n});\n\napp.post('/api/items', (req, res) => {\n    const item = req.body;\n    items.push(item);\n    res.status(201).json(item);\n});\n\napp.listen(3000, () => console.log('Server running on port 3000'));"},
+        {"path": "package.json", "content": "{\"name\":\"express-api\",\"version\":\"1.0.0\",\"dependencies\":{\"express\":\"^4.18.0\"}}"}
+    ]
+}
