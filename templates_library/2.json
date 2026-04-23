@@ -1,0 +1,8 @@
+{
+    "title": "Flask CRUD",
+    "description": "A Flask CRUD application with SQLite.",
+    "files": [
+        {"path": "app.py", "content": "from flask import Flask, render_template, request, redirect, url_for\nfrom flask_sqlalchemy import SQLAlchemy\n\napp = Flask(__name__)\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'\ndb = SQLAlchemy(app)\n\nclass Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(100), nullable=False)\n\n@app.route('/')\ndef index():\n    items = Item.query.all()\n    return render_template('index.html', items=items)\n\n@app.route('/add', methods=['POST'])\ndef add():\n    name = request.form['name']\n    new_item = Item(name=name)\n    db.session.add(new_item)\n    db.session.commit()\n    return redirect(url_for('index'))\n\nif __name__ == '__main__':\n    with app.app_context():\n        db.create_all()\n    app.run(debug=True)"},
+        {"path": "templates/index.html", "content": "<!doctype html>\n<html>\n<body>\n<h1>Items</h1>\n<ul>\n{% for item in items %}\n<li>{{ item.name }}</li>\n{% endfor %}\n</ul>\n<form method='POST' action='/add'>\n<input type='text' name='name' placeholder='New item'>\n<button type='submit'>Add</button>\n</form>\n</body>\n</html>"}
+    ]
+}
