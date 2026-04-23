@@ -1,0 +1,9 @@
+{
+    "title": "React Todo",
+    "description": "A simple React todo list app.",
+    "files": [
+        {"path": "src/App.js", "content": "import React, { useState } from 'react';\nimport './App.css';\n\nfunction App() {\n  const [todos, setTodos] = useState([]);\n  const [input, setInput] = useState('');\n\n  const addTodo = () => {\n    if (input.trim()) {\n      setTodos([...todos, input]);\n      setInput('');\n    }\n  };\n\n  return (\n    <div className='App'>\n      <h1>Todo List</h1>\n      <input value={input} onChange={e => setInput(e.target.value)} />\n      <button onClick={addTodo}>Add</button>\n      <ul>\n        {todos.map((todo, index) => (<li key={index}>{todo}</li>))}\n      </ul>\n    </div>\n  );\n}\n\nexport default App;"},
+        {"path": "src/App.css", "content": ".App { text-align: center; }\ninput { padding: 10px; margin: 10px; }\nbutton { padding: 10px; }"},
+        {"path": "package.json", "content": "{\"name\":\"todo-app\",\"version\":\"1.0.0\",\"dependencies\":{\"react\":\"^18.0.0\",\"react-dom\":\"^18.0.0\",\"react-scripts\":\"5.0.0\"}}"}
+    ]
+}
