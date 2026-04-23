@@ -1,0 +1,7 @@
+{
+    "title": "Go HTTP Server",
+    "description": "A simple HTTP server in Go.",
+    "files": [
+        {"path": "main.go", "content": "package main\n\nimport (\n    \"fmt\"\n    \"net/http\"\n)\n\nfunc handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Hello, World!\")\n}\n\nfunc main() {\n    http.HandleFunc(\"/\", handler)\n    http.ListenAndServe(\":8080\", nil)\n}"}
+    ]
+}
